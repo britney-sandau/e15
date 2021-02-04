@@ -7,5 +7,6 @@
 </head>
 <body>
     <h1>Practice Application</h1>
+    <h2>By: Britney Sandau</h2>
 </body> 
 </html>
