@@ -7,5 +7,6 @@
 </head>
 <body>
     <h1>Practice Application</h1>
+    <p>Added a line from Mac Baby</p>
 </body> 
 </html>
