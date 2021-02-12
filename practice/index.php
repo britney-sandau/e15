@@ -17,5 +17,18 @@ $quarters = 34;
 # Add up how much money is in the piggy bank
 $total = ($pennies * $penny_value) + ($nickels * $nickel_value) + ($dimes * $dime_value) + ($quarters * $quarter_value);
 
+$results = [];
+$randomNumbers = [45, 67, 33, 56, 42, 100, 67];
+
+foreach($randomNumbers as $index => $number) {
+
+    if($number % 2 == 0) {
+        continue;
+    }
+    $results[] = $number;
+
+}
+var_dump($results); 
+
 require 'index-view.php';
 
