@@ -13,39 +13,44 @@
 <body>
 <div class='main'>
     <h1>Project 1: A play on words.</h1>
-    
-    <p>Type in a set of words to find out if it is a palindrome and how many vowels it contains.</p>
+
+    <p class='para'>What's in a word? Type a word or phrase to find out if it is a palindrome and how many vowels it contains.</p>
 
     <form method='GET' action='process.php'>
         <input type='text' name='inputString'>
 
         <button type='submit'>Submit</button>
+ </form>   
 
-    </form>
+    <div class='results'>
 
-    <?php if (isset($inputString)): ?>
-    <div>
-        You submitted: <?php echo $inputString ?>
-    </div>
-    <div>
-    Is big word?
-    <?php if ($isBigWord) { ?>
-    Yes
-    <?php } else { ?>
-    No <?php } ?>
-    </div>
-    <div>
-    Here is a test: <?php echo $isPalindrome; ?>
-    </div>
-    <div>
-    Are there any vowels? <?php echo $isVowelCount; ?>
-    </div>
-    <div>
-    Each letter has moved over by one. <? echo $isLetterShift; ?>
-    <?php endif ?>
+        <?php if (isset($inputString)): ?>
+        You submitted: 
+        <div class='outcome'>
+        <?php echo $inputString ?>
+        </div>
+
     </div>
 
+    <div class='results'>
+        
+        Is it a palindrome? 
+        <div class='outcome'>
+        <?php echo $isPalindrome; ?>
+        </div>
+    
+    </div>
+    
+    <div class='results'>
+        
+        Are there any vowels? 
+        <div class='outcome'>
+        <?php echo $isVowelCount; ?>
+        </div>
+        <?php endif ?>
 
+    </div>
+    
 </div>
 </body>
 
