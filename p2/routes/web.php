@@ -14,15 +14,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    // return '<h1>Bookmark</h1>';
     return view('welcome');
-});
-
-Route::get('/example', function () {
-    return view('abc');
-    // return 'abc';
-});
-
-Route::get('/book/{id}', function ($id) {
-    return 'You have requested book #'.$id;
 });
