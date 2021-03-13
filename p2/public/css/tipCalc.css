@@ -1,0 +1,72 @@
+#bg {
+    position: fixed;
+    top: -70%;
+    left: -30%;
+    width: 200%;
+    height: 200%;
+}
+
+#bg img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    min-width: 50%;
+    min-height: 50%;
+}
+
+#tipCalc {
+    background-color: white;
+    left: 50%;
+    top: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    padding-top: 50px;
+    padding-right: 30px;
+    padding-bottom: 50px;
+    padding-left: 80px;
+}
+
+#data {
+    padding-top: 10px;
+    padding-right: 5px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+}
+
+.button {
+    text-align: center;
+}
+
+
+/* #form {
+    display: table;
+    width: 100%;
+}
+
+#tipCalc {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+} */
+
+/* #bg {
+    position: center;
+    top: 0;
+    left: 0;
+
+    
+min-width: 100%;
+min-height: 100%;
+}
+
+*/
+/* 
+#bg {
+    background: url(images/bg.jpg) no-repeat center center fixed;
+    background-size: cover;
+    height: 100%;
+    overflow: hidden;
+} */

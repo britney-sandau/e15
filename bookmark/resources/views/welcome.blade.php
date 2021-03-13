@@ -5,5 +5,5 @@ Bookmark
 @endsection
 
 @section('content')
-<p>Welcome to Bookmark</p>
+<p>Welcome to Bookmark!</p>
 @endsection
