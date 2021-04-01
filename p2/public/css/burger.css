@@ -17,8 +17,8 @@
     min-height: 50%;
 }
 
-#tipCalc {
-    background-color: white;
+#order {
+    background-color: lightskyblue;
     left: 50%;
     top: 50%;
     position: absolute;

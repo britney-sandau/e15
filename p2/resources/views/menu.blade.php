@@ -1,9 +1,14 @@
 @extends('layouts/main')
 
 @section('title')
-Bookmark
+Burger Bytes
 @endsection
 
 @section('content')
-<p>Welcome to Bookmark!</p>
+<div>
+    <h1>Burger Bytes</h1>
+    <h2>Menu</h2>
+
+
+</div>
 @endsection

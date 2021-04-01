@@ -6,9 +6,23 @@ use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
+    /**
+     * GET /
+     */
     public function index()
     {
-        return view('welcome');
+        $searchResults = session('searchResults', null);
+
+        return view('pages/welcome', [
+            'searchResults' => $searchResults,
+            ]);
     }
-    
+
+    /**
+     * GET /support
+     */
+    public function support()
+    {
+        return view('pages/support');
+    }
 }

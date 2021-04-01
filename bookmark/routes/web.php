@@ -1,31 +1,22 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\PageController;
 
 Route::get('/', [PageController::class, 'index']);
+Route::get('/support', [PageController::class, 'support']);
+
+// Make sure the create route comes before `/books/{slug?}` so it takes precedence
+Route::get('/books/create', [BookController::class, 'create']);
+
+// Note the use of the post method in this route
+Route::post('/books', [BookController::class, 'store']);
+
 Route::get('/books', [BookController::class, 'index']);
-Route::get('/books/{title}', [BookController::class, 'show']);
-Route::get('/search/{category}/{subcategory}', [BookController::class, 'search']);
+Route::get('/search', [BookController::class, 'search']);
+Route::get('/books/{slug}', [BookController::class, 'show']);
+Route::get('/list', [BookController::class, 'list']);
 
-// Route::get('/example', function () {
-//     return view('abc');
-//     // return 'abc';
-// });
-
-// Route::get('/book/{id}', function ($id) {
-//     return 'You have requested book #'.$id;
-// });
-
-
-// Route::get('/books/{title?}', function ($title = null) {
-//     if (is_null($title)) {
-//         return "No title specified";
-//     }
-//     return "You are trying to view the book: " .$title;
-// });
-
-// Route::post('/process', function (){
-//     return 'This is the example page...';
-// });
+//Route::get('/search/{category}/{subcategory}', [BookController::class, 'search']);

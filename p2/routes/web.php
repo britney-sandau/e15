@@ -1,18 +1,16 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\PageController;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
 Route::get('/', [PageController::class, 'index']);
 
+Route::get('/order', [PageController::class, 'order']);
+Route::get('/menu', [PageController::class, 'menu']);
+Route::get('/contact', [PageController::class, 'contact']);
+
+//Route::get('/order', [PageController::class, 'order']);
+//Route::post('/confirm ', [PageController::class, 'order']);
+// Route::get('/order', [PageController::class, 'confirm']);
+//Route::get('/books', [BookController::class, 'index']);

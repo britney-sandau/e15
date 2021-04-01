@@ -1,48 +1,115 @@
 @extends('layouts/main')
 
 @section('title')
-Tip Calculator
+Burger Bytes
 @endsection
 
 @section('content')
-<p>This will be the page where my tip calculator will begin. The welcome page.</p>
+<div>
+    <h1>Burger Bytes</h1>
 
-<div id='form'>
-    <form id='tipCalc'>
-        <div id='data'>
-            <label for='bill'>How much is the bill? $</label>
-            <input type='text' id='bill'>
-        </div>
+    {{-- <form method='GET' action='/order'> --}}
 
-        <div id='data'>
+    <h2>Welcome to Burger Bytes</h2>
+    {{-- <h3>Place order</h3> --}}
 
-            <label for='people'>How many people are splitting the bill?</label>
-            <input type='text' id='people'>
-        </div>
+    {{-- <fieldset>
+            <input type='radio' name='handoff' id='pickup' value='pickup'>
+            <label for='pickup'>Pick Up</label>
 
-        <div id='data'>
+            <input type='radio' name='handoff' id='delivery' value='delivery'>
+            <label for='delivery'>Delivery</label>
+        </fieldset> --}}
 
-            <label for='tip'>How much would you like to tip?</label>
-            <select id='tip'>
-                <option>Choose one...</option>
-                <option>10% Bad Service</option>
-                <option>15% Fair Service</option>
-                <option>18% Good Service</option>
-                <option>20% Great service</option>
-                <option>25% Outstanding service</option>
-            </select>
-        </div>
+    {{-- <fieldset>
+            <input type='radio' name='sandwich' id='burger' value='burger' checked>
 
-        <div id='data'>
+            <label for='burger'>Cheeseburger</label>
 
-            <input type='checkbox' id='round_up'>
-            <label for='round_up'>Would you like to round up?</label>
-        </div>
-        <div id='data' class='button'>
+            <input type='radio' name='sandwich' id='chicken' value='chicken'>
 
-            <button type='submit'>Calculate</button>
-        </div>
-    </form>
+
+            <label for='chicken'>Grilled Chicken</label>
+
+            <input type='radio' name='sandwich' id='veggie' value='veggie'>
+
+
+            <label for='veggie'>Veggie Burger</label>
+        </fieldset>
+
+        <fieldset>
+            <p>All sandwiches come with cheese, tomatoes, lettuce, pickles, onions and special sauce.</p>
+        </fieldset>
+
+        <fieldset>
+            <input type='checkbox' name='cheese' id='cheese'>
+            <label for='cheese'>No Cheese</label>
+
+            <input type='checkbox' name='tomato' id='tomato'>
+            <label for='tomato'>No Tomatoes</label>
+
+            <input type='checkbox' name='lettuce' id='lettuce'>
+            <label for='lettuce'>No Lettuce</label>
+
+            <input type='checkbox' name='pickles' id='pickles'>
+            <label for='pickles'>No Pickles</label>
+
+            <input type='checkbox' name='onions' id='onions'>
+            <label for='onions'>No Onions</label>
+
+            <input type='checkbox' name='sauce' id='sauce'>
+            <label for='sauce'>No Special Sauce</label>
+        </fieldset>
+
+
+        {{-- <fieldset>
+            <input type='checkbox' name='ketchup' id='ketchup'>
+            <label for='ketchup'>Add Ketchup</label>
+
+            <input type='checkbox' name='mustard' id='mustard'>
+            <label for='mustard'>Add Mustard</label>
+        </fieldset> --}}
+
+    {{-- <fieldset>
+            <label for='name'>Name:</label>
+            <input type='text' name='name' id='name'>
+        </fieldset> --}}
+
+    {{-- <fieldset>
+            <label for='email'>E-mail:</label>
+            <input type='email' name='email' id='email'>
+        </fieldset>
+
+        <fieldset>
+            <label for='tel'>Phone Number:</label>
+            <input type='tel' name='tel' id='tel'>
+        </fieldset> --}}
+
+    {{-- <input type='submit' class='btn btn-primary' value='Order'>
+
+    </form> --}}
 
 </div>
 @endsection
+
+
+{{-- <div id='data' class='button'>
+            <button type='submit'>Place Order</button>
+        </div> --}}
+
+
+
+
+{{-- @if(count($errors) > 0)
+        <ul class='alert alert-danger'>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+@endforeach
+</ul>
+@endif --}}
+
+{{-- <fieldset>
+            <label for='notes'>Additional Notes:</label>
+            <br>
+            <textarea name='notes' id='notes'></textarea>
+        </fieldset> --}}
