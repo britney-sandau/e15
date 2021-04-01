@@ -47,6 +47,10 @@ class PageController extends Controller
     **/
     public function order(Request $request)
     {
+        // $request->validate([
+        //     'name' => 'required'
+        // ]);
+
         $sandwich = $request->input('sandwich', null);
         $name = $request->input('name', null);
         $topping1 = $request->input('topping1', null);
@@ -58,9 +62,12 @@ class PageController extends Controller
         $topping7 = $request->input('topping7', null);
         $topping8 = $request->input('topping8', null);
         $topping9 = $request->input('topping9', null);
+        $email = $request->input('email', null);
+        $tel = $request->input('tel', null);
+        $notes = $request->input('notes', null);
 
 
-        $data = array($sandwich, $name, $topping1, $topping2);
+        $data = array($sandwich, $name, $topping1, $topping2, $tel, $email, $notes);
 
         foreach ($data as $value) {
             echo gettype($value), "\n";
@@ -93,6 +100,11 @@ class PageController extends Controller
         //     'topping7' => $topping7,
         //     'topping8' => $topping8,
         // ]);
+
+        // $request->validate([
+        //     'name' => 'required'
+        // ]);
+
         return view('/order', [
             'name' => $name,
             'sandwich' => $sandwich,
@@ -105,6 +117,10 @@ class PageController extends Controller
             'topping7' => $topping7,
             'topping8' => $topping8,
             'topping9' => $topping9,
+            'email' => $email,
+            'tel' => $tel,
+            'notes' => $notes,
+
             ]);
 
         //return redirect('/order')->with(['name' => $name]);

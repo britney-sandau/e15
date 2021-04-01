@@ -11,6 +11,24 @@ Burger Bytes
     <form method='GET' action='/order'>
         <h1>Burger Bytes</h1>
         <h2>Place order</h2>
+
+        <fieldset>
+            <label for='name'>Name:</label>
+            <input type='text' name='name' id='name'>
+        </fieldset>
+
+        <fieldset>
+            <label for='email'>E-mail:</label>
+            <input type='email' name='email' id='email' value="{{old('email', $email)}}">
+
+        </fieldset>
+
+        <fieldset>
+            <label for='tel'>Phone Number:</label>
+            <input type='tel' name='tel' id='tel' value="{{old('tel', $tel)}}">
+
+        </fieldset>
+
         <fieldset>
             <input type='radio' name='sandwich' id='burger' value='Cheeseburger' {{ ($sandwich == 'Cheeseburger' OR is_null($sandwich)) ? 'checked' : ''}}>
             <label for='burger'>Cheeseburger</label>
@@ -63,34 +81,25 @@ Burger Bytes
         </fieldset>
 
         <fieldset>
-            <label for='name'>Name:</label>
-            <input type='text' name='name' id='name'>
+            <label for='notes'>Additional Notes:</label>
+            <br>
+            <textarea type='text' name='notes' id='notes'>{{old('notes', $notes)}}</textarea>
         </fieldset>
 
-        {{-- <fieldset>
-            <label for='email'>E-mail:</label>
-            <input type='email' name='email' id='email'>
-        </fieldset>
 
-        <fieldset>
-            <label for='tel'>Phone Number:</label>
-            <input type='tel' name='tel' id='tel'>
-        </fieldset> --}}
+
+
+
 
         <input type='submit' class='btn btn-primary' value='Order'>
 
-
-
-
-
-
-        {{-- @if(count($errors) > 0)
+        @if(count($errors) > 0)
         <ul class='alert alert-danger'>
             @foreach ($errors->all() as $error)
             <li>{{ $error }}</li>
-        @endforeach
+            @endforeach
         </ul>
-        @endif --}}
+        @endif
 
 
     </form>
@@ -118,6 +127,7 @@ Burger Bytes
         <p>{{$topping7 ?? ''}}</p>
         <p>{{$topping8 ?? ''}}</p>
         <p>{{$topping9 ?? ''}}</p>
+        <p>{{$notes}}</p>
 
 
         <p>will be ready in 15 mins.</p>
