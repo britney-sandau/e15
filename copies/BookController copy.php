@@ -1,14 +1,15 @@
 <?php
+
+# Will delete this page. It is a good example to see how blade forms work.
  
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class PageController extends Controller
+class BookController extends Controller
 {
     public function index()
     {
-        // Creates a session for the following variables.
         $name = session('name', null);
         $sandwich = session('sandwich', null);
         $topping1 = session('topping1', null);
@@ -21,10 +22,11 @@ class PageController extends Controller
         $topping8 = session('topping8', null);
         $topping9 = session('topping9', null);
         $email = session('email', null);
+        $tel = session('tel', null);
         $notes = session('notes', null);
 
-        // Returns the following to the home welcome page.
-        return view('/welcome', [
+
+        return view('/order', [
             'name' => $name,
             'sandwich' => $sandwich,
             'topping1' => $topping1,
@@ -37,17 +39,17 @@ class PageController extends Controller
             'topping8' => $topping8,
             'topping9' => $topping9,
             'email' => $email,
+            'tel' => $tel,
             'notes' => $notes,
             ]);
     }
 
-    public function menu()
+    public function show($title)
     {
-        return view('/menu');
+        # TODO: Query the db where book title = $title
     }
 
-    public function contact()
+    public function search($category, $subcategory)
     {
-        return view('/contact');
     }
 }
