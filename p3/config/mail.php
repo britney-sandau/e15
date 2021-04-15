@@ -2,6 +2,10 @@
 
 return [
 
+    /* Email link for Curby assistance. */
+    'askCurby' => 'help@curby.com',
+    
+
     /*
     |--------------------------------------------------------------------------
     | Default Mailer

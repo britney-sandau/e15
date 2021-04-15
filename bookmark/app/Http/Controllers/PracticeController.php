@@ -16,11 +16,11 @@ class PracticeController extends Controller
         // foreach ($books as $book) {
         //     dump($book->title);
 
-        $book = Book::where('author', '=', 'Dr. Seuss')->get();
-        $book->delete();
-        dump('Book deleted.');
+        // $book = Book::where('author', '=', 'Dr. Seuss')->get();
+        // $book->delete();
+        // dump('Book deleted.');
 
-        }
+        
     }
 
     public function practice4()
