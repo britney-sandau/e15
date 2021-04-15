@@ -3,6 +3,9 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use App\Models\Item; 
+use Carbon\Carbon; 
+use Faker\Factory; 
 
 class DatabaseSeeder extends Seeder
 {

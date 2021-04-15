@@ -10,17 +10,16 @@ class PracticeController extends Controller
 {
     public function practice5()
     {
-        // $book = Book::where('title', 'LIKE', '%Harry Potter%')->first();
+        $book = Book::where('title', 'LIKE', '%Harry Potter%')->first();
+        dump($book);
 
         // $books = Book::where('author', 'LIKE', '%Rowling%')->get();
         // foreach ($books as $book) {
         //     dump($book->title);
 
-        // $book = Book::where('author', '=', 'Dr. Seuss')->get();
+        // $book = Book::where('author', '=', 'Rowling')->get();
         // $book->delete();
         // dump('Book deleted.');
-
-        
     }
 
     public function practice4()
@@ -58,6 +57,10 @@ class PracticeController extends Controller
         $book->save();
 
         dump('Added: ' . $book->title);
+
+        // $book = Book::where('author', '=', 'Anthony Weir')->get();
+        // $book->delete();
+        // dump('Book deleted.');
     }
 
     public function practice2()

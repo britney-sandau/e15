@@ -3,9 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Item;
 
 class PracticeController extends Controller
 {
+      /**
+     * Practice example using the Item Model
+     */
+      public function practice2()
+    {
+        dump(Item::all()->toArray());
+    }
+
     /**
      * First practice example
      * GET /practice/1

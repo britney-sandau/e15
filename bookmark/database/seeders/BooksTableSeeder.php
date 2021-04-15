@@ -20,7 +20,7 @@ class BooksTableSeeder extends Seeder
     {
         # Three different examples of how to add books
         // $this->addOneBook();
-        $this->addAllBooksFromBooksDotJsonFile();
+        //$this->addAllBooksFromBooksDotJsonFile();
         $this->addRandomlyGeneratedBooksUsingFaker();
     }
 
