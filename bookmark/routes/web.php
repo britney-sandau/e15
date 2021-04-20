@@ -55,4 +55,18 @@ Route::get('/search', [BookController::class, 'search']);
 Route::get('/books/{slug}', [BookController::class, 'show']);
 Route::get('/list', [BookController::class, 'list']);
 
+//Update
+# Show the form to edit a specific book
+Route::get('/books/{slug}/edit', [BookController::class, 'edit']);
+# Process the form to edit a specific book
+Route::put('/books/{slug}', [BookController::class, 'update']);
+
+//Delete
+# Show the page to confirm deletion of a book
+Route::get('/books/{slug}/delete', [BookController::class, 'delete']);
+# Process the deletion of a book
+Route::delete('/books/{slug}', [BookController::class, 'destroy']);
+
+
+
 //Route::get('/search/{category}/{subcategory}', [BookController::class, 'search']);

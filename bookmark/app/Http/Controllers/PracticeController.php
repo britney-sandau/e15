@@ -8,6 +8,55 @@ use Str;
 
 class PracticeController extends Controller
 {
+    public function practice8()
+    {
+        // $results = Book::all();
+        // dump($results); # Shows an object of type Illuminate\Database\Eloquent\Collection that contains multiple Book objects
+        
+        // $books = Book::all();
+        // echo $books;
+
+
+        $books = Book::orderBy('id', 'desc')->get();
+        $book = $books->first();
+
+
+        dump($books);
+        dump($book);
+
+
+        // $books = Book::get();
+        // dump($books);
+
+        // $results = Book::where('published_year', '>', 1990)->get();
+        // dump($results); # Shows an object of type Illuminate\Database\Eloquent\Collection that contains multiple Book objects
+
+        // # Even if our query finds just 1 result, *get* still yields a Collection, it'll just be a Collection of 1 object:
+        // $results = Book::where('title', '=', 'The Bell Jar')->get();
+        // dump($results); # Shows an object of type Illuminate\Database\Eloquent\Collection that contains 1 Book object
+
+        // # Similarly, if our query does not find any results, *get* still yields a Collection, it’ll just be empty
+        // $results = Book::where('author', '=', 'Amy Tan')->get();
+        // dump($results); # Empty collection
+
+        // # Even if we limit our query to 1 book, because we're using the *get* method, we will get a Collection in return
+        // $results = Book::limit(1)->get();
+
+        // $results = Book::first();
+        // dump($results); # Shows an object of type App\Models\Book
+
+        // $results = Book::find(1);
+        // dump($results); # Shows an object of type App\Models\Book
+    }
+
+    public function practice7()
+    {
+    }
+
+    public function practice6()
+    {
+    }
+
     public function practice5()
     {
         $book = Book::where('title', 'LIKE', '%Harry Potter%')->first();
