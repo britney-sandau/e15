@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ItemController;
+use App\Http\Controllers\CrudController;
 
 // Used for practice
 use App\Http\Controllers\PracticeController;
@@ -22,9 +23,9 @@ use Illuminate\Support\Facades\App;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Home page
+Route::get('/', [ItemController::class, 'index']);
+
 
 // Checks to see if the site can connect to the database.
 // DELETE once production is set.
@@ -53,19 +54,49 @@ Route::get('/debug', function () {
     dump($debug);
 });
 
+# CRUD operations
 
-Route::get('/items', [ItemController::class, 'index']);
-
-Route::get('/items/{title}', [ItemController::class, 'product']);
+Route::get('users/login', [ItemController::class, 'login']);
 
 
-Route::get('/example', function () {
-    return 'Example...';
-});
+// Lists available items
+Route::get('/items', [ItemController::class, 'items']);
+Route::get('/items/{{username}}', [ItemController::class, 'details']);
 
-Route::get('/map', function () {
-    return 'City map...';
-});
+
+// Creates an item.
+Route::get('/items/add', [CrudController::class, 'add']);
+
+// Updates an item.
+Route::put('/items/update', [CrudController::class, 'update']);
+
+// Deletes and item.
+Route::delete('/items/delete', [CrudController::class, 'delete']);
+
+// Displays users items
+Route::get('/users/list', [CrudController::class, 'list']);
+//Route::get('/items/{username}', [ItemController::class, 'product']);
+
+// Routes to Curby's help page and contact info.
+Route::get('/help', [ItemController::class, 'help']);
+
+// Registration page.
+Route::get('users/signup', [ItemController::class, 'signup']);
+
+
+
+
+
+
+
+
+// Route::get('/example', function () {
+//     return 'Example...';
+// });
+
+// Route::get('/map', function () {
+//     return 'City map...';
+// });
 
 
 

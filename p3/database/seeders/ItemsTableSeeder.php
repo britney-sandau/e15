@@ -22,7 +22,7 @@ class ItemsTableSeeder extends Seeder
     {
         //$this->addItem();
         $this->addItemFromJsonFile();
-        //$this->addFakerItem();
+        $this->addFakerItem();
     }
 
     private function addItem()
