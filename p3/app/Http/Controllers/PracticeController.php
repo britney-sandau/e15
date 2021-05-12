@@ -4,14 +4,56 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Item;
+use Str;
 
 class PracticeController extends Controller
 {
-      /**
+    /**
+    * Practice example adding Item
+    */
+
+    public function practice4()
+    {
+        $item = new Item();
+        $items = $item->where('category', 'LIKE', '%toys%')->get();
+
+        if ($items->isEmpty()) {
+            dump('No matches found');
+        } else {
+            foreach ($items as $item) {
+                dump($item->category);
+            }
+        }
+    }
+
+    /**
+     * Practice example adding Item
+     */
+
+    public function practice3()
+    {
+        $item = new Item();
+
+        $item->username = 'CraftyChris';
+        $item->category = 'toys';
+        $item->description = 'Baby toys in good condition.';
+        $item->image = 'https://hes-bookmark.s3.amazonaws.com/the-great-gatsby.jpg';
+
+        $item->save();
+
+        dump('Added: ' . $item->username);
+
+        // $item = Item::where('username', '=', 'CraftyChris')->get();
+        // $item->delete();
+        // dump('Item deleted.');
+    }
+
+    /**
      * Practice example using the Item Model
      */
-      public function practice2()
+    public function practice2()
     {
+        dump(Item::find(3));
         dump(Item::all()->toArray());
     }
 
@@ -29,10 +71,6 @@ class PracticeController extends Controller
      * /practice/{n?}
      * This method accepts all requests to /practice/ and
      * invokes the appropriate method.
-     * http://e15bookmark.loc/practice => Shows a listing of all practice routes
-     * http://e15bookmark.loc/practice/1 => Invokes practice1
-     * http://e15bookmark.loc/practice/5 => Invokes practice5
-     * http://e15bookmark.loc/practice/999 => 404 not found
      */
     public function index($n = null)
     {

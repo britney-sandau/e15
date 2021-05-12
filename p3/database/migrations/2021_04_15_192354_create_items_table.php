@@ -15,11 +15,15 @@ class CreateItemsTable extends Migration
     {
         Schema::create('items', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->timestamps(); // Adds a created_at and updated_at entry in the database. Marking this so I remember.
             $table->string('username', 30);
             $table->enum('category', ['furniture', 'toys', 'clothing', 'exercise equipment', 'miscellaneous']);
             $table->text('description');
-            $table->binary('image');
+
+            // temp until I can figure out how to upload photo.
+            $table->string('image')->nullable();
+
+            // Commented out until I can upload a photo. $table->binary('image');
         });
     }
 

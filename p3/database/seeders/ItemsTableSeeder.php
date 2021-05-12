@@ -3,6 +3,13 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
+use App\Models\Item;
+
+use Carbon\Carbon; # Used to create timestamps.
+use Faker\Factory; # Might use to create fake data. Adding just in case.
+
+# Please note I used the Bookmark seeder page to help create seed data.
 
 class ItemsTableSeeder extends Seeder
 {
@@ -13,6 +20,58 @@ class ItemsTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        //$this->addItem();
+        $this->addItemFromJsonFile();
+        $this->addFakerItem();
+    }
+
+    private function addItem()
+    {
+        $item = new Item();
+
+        $item->username = 'CraftyChris';
+        $item->category = 'toys';
+        $item->description = 'Baby toys in good condition.';
+        $item->image = 'https://hes-bookmark.s3.amazonaws.com/the-great-gatsby.jpg';
+
+        $item->save();
+    }
+
+    private function addItemFromJsonFile()
+    {
+        $itemData = file_get_contents(database_path('items.json'));
+        $items = json_decode($itemData, true);
+    
+        $count = count($items);
+        foreach ($items as $username => $itemData) {
+            $item = new Item();
+
+            $item->created_at = Carbon::now()->subDays($count)->toDateTimeString();
+            $item->updated_at = Carbon::now()->subDays($count)->toDateTimeString();
+            $item->username = $itemData['username'];
+            $item->category = $itemData['category'];
+            $item->description = $itemData['description'];
+            $item->image = $itemData['image'];
+
+            $item->save();
+            $count--;
+        }
+    }
+
+    private function addFakerItem()
+    {
+        # To add fake data to test my page. Faker: https://github.com/fzaninotto/Faker
+        $faker = Factory::create();
+
+        for ($i = 0; $i < 5; $i++) {
+            $item = new Item();
+
+            $item->username = $faker->firstname;
+            $item->category = 'miscellaneous';
+            $item->description = $faker->paragraphs(1, true);
+            $item->image = 'https://hes-bookmark.s3.amazonaws.com/cover-placeholder.png';
+           
+            $item->save();
+        }
     }
 }

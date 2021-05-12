@@ -3,9 +3,9 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\Item; 
-use Carbon\Carbon; 
-use Faker\Factory; 
+use App\Models\Item;
+use Carbon\Carbon;
+use Faker\Factory;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,6 +16,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        $this->call(ItemsTableSeeder::class);
     }
 }

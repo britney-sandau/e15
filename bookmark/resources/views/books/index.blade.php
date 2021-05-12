@@ -1,7 +1,7 @@
 @extends('layouts/main')
 
 @section('title')
-All books
+All Books
 @endsection
 
 @section('head')
@@ -13,26 +13,22 @@ All books
 <h1>All Books</h1>
 
 @if(count($books) == 0)
-No books have been added yet...
+<p dusk='empty-books'>No books have been added yet...</p>
 @else
+<div id='newBooks'>
+    <h2>New Books</h2>
+    <ul class='clean-list'>
+        @foreach($newBooks as $book)
+        <li><a href='/books/{{ $book->slug }}'>{{ $book->title }}</a></li>
+        @endforeach
+    </ul>
+</div>
 
-<h2>New Books</h2>
-<ul>
-    @foreach($newBooks as $book)
-    <li>{{$book->title}}</li>
-    @endforeach
-</ul>
-
-<div id='books'>
-
-
-
-
+<div id='books' dusk='books'>
     @foreach($books as $book)
-    <a class='book' href='/books/{{ $book ->slug }}'>
-        <h3>{{ $book ->title }}</h3>
-        <img class='cover' src='{{ $book ->cover_url }}'>
-    </a>
+    <a class='book' href='/books/{{ $book->slug }}'>
+        <h3>{{ $book->title }}</h3>
+        <img class='cover' src='{{ $book->cover_url }}'>
     </a>
     @endforeach
 </div>
