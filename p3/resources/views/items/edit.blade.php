@@ -49,6 +49,12 @@ Curby
     <textarea name='description' id='description'>{{ old('description', $item->description) }}</textarea>
 
     <br>
+    <br>
+    <label for='city'>City (required)</label>
+    <br>
+    <textarea name='city' id='city'>{{ old('city') }}</textarea>
+    <br>
+
     <label for='image'>Image (required)</label>
 
     <br>

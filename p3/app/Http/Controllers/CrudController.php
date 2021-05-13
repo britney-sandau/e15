@@ -8,7 +8,6 @@ use App\Models\User;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 
-
 /**
     * I used a separate controller for my CRUD operations to keep better track of them.
     * I noticed the Bookmark page had something similar and I thought it made better sense.
@@ -29,6 +28,7 @@ class CrudController extends Controller
             'slug' => 'required|unique:items,slug',
             'category' => 'required|in:furniture,toys,clothing,exercise equipment,miscellaneous',
             'description' => 'required|min:2|max:255',
+            'city' => 'required|min:2|max:100',
             'image' => 'required|url',
         ]);
 
@@ -38,6 +38,7 @@ class CrudController extends Controller
         $item->slug = $request->slug;
         $item->category = $request->category;
         $item->description = $request->description;
+        $item->city = $request->city;
         $item->image = $request->image;
 
         $item->save();
@@ -54,6 +55,7 @@ class CrudController extends Controller
     public function edit(Request $request, $slug)
     {
         $item = Item::where('slug', '=', $slug)->first();
+        // $item = Item::findBySlug($slug);
         
         if (!$item) {
             return redirect('/items')->with(['alert' => 'Item not found']);
@@ -71,6 +73,7 @@ class CrudController extends Controller
             'slug' => 'required|unique:items,slug'.$item->id.'|alpha_dash',
             'category' => 'required|in:val1,val2,val3,val4,val5',
             'description' => 'required|min:2|max:255',
+            'city' => 'required|min:2|max:100',
             'image' => 'required|url',
         ]);
 
@@ -78,6 +81,7 @@ class CrudController extends Controller
         $item->slug = $request->slug;
         $item->category = $request->category;
         $item->description = $request->description;
+        $item->city = $request->city;
         $item->image = $request->image;
         $item->save();
 

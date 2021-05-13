@@ -59,30 +59,31 @@ Route::group(['middleware' => 'auth'], function () {
 # CRUD operations
 
 
-    //Route::get('auth/login', [ItemController::class, 'login']);
+//Route::get('auth/login', [ItemController::class, 'login']);
 
-    // Lists available items
-    Route::get('/items', [ItemController::class, 'items'])->middleware('auth');
-    // Route::get('/items/details', [ItemController::class, 'display']);
+// Lists available items
+Route::get('/items', [ItemController::class, 'items'])->middleware('auth');
+// Route::get('/items/details', [ItemController::class, 'display']);
 
-    // Creates an item.
-    Route::get('/items/add', [CrudController::class, 'add']);
-    Route::post('/items', [CrudController::class, 'save']);
+// Creates an item.
+Route::get('/items/add', [CrudController::class, 'add']);
+Route::post('/items', [CrudController::class, 'save']);
 
-    // Displays users items
-    Route::get('/items/list', [CrudController::class, 'list']);
-
-
-    Route::get('/items/{slug}', [ItemController::class, 'info']);
-
-    // Updates an item.
-    Route::get('/items/{slug}/edit', [CrudController::class, 'edit']);
-    Route::put('/items/{slug}', [CrudController::class, 'update']);
+// Displays users items
+Route::get('/items/list', [CrudController::class, 'list']);
 
 
-    // Deletes and item.
-    Route::get('/items/{slug}/delete', [CrudController::class, 'delete']);
-    Route::delete('/items/{slug}', [CrudController::class, 'remove']);
+Route::get('/items/{slug}', [ItemController::class, 'info']);
+
+// Updates an item.
+Route::get('/items/{slug}/edit', [CrudController::class, 'edit']);
+Route::put('/items/{slug}', [CrudController::class, 'update']);
+
+
+// Deletes and item.
+Route::get('/items/{slug}/delete', [CrudController::class, 'delete']);
+Route::delete('/items/{slug}', [CrudController::class, 'remove']);
+
 });
 
 //Route::get('/items/{slug}', [ItemController::class, 'product']);

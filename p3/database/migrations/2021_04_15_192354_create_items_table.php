@@ -20,6 +20,7 @@ class CreateItemsTable extends Migration
             $table->string('username');
             $table->enum('category', ['furniture', 'toys', 'clothing', 'exercise equipment', 'miscellaneous']);
             $table->text('description');
+            $table->string('city');
 
             // temp until I can figure out how to upload photo.
             $table->string('image');

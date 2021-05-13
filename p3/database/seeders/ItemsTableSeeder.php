@@ -33,6 +33,7 @@ class ItemsTableSeeder extends Seeder
         $item->username = 'CraftyChris';
         $item->category = 'toys';
         $item->description = 'Baby toys in good condition.';
+        $item->city = 'Cambridge';
         $item->image = 'https://hes-bookmark.s3.amazonaws.com/the-great-gatsby.jpg';
 
         $item->save();
@@ -53,6 +54,7 @@ class ItemsTableSeeder extends Seeder
             $item->username = $itemData['username'];
             $item->category = $itemData['category'];
             $item->description = $itemData['description'];
+            $item->city = $itemData['city'];
             $item->image = $itemData['image'];
 
             $item->save();
@@ -73,6 +75,7 @@ class ItemsTableSeeder extends Seeder
             $item->username = $faker->firstname;
             $item->category = 'miscellaneous';
             $item->description = $faker->paragraphs(1, true);
+            $item->city = $faker->city;
             $item->image = 'https://hes-bookmark.s3.amazonaws.com/cover-placeholder.png';
            
             $item->save();
