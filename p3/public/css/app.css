@@ -6,6 +6,26 @@ body {
 
 }
 
+.nav {
+    background-color: blue;
+    color: white;
+    font-size: 20px;
+}
+
+.alert {
+    background-color: yellowgreen;
+    padding: 1em;
+    color: white;
+}
+
+.alert-danger {
+    background-color: lightcoral;
+    padding: 1em;
+    color: white;
+    margin-top: 20px;
+    list-style-type: none;
+}
+
 .list {
     list-style-type: none;
     background-color: blue;
@@ -16,12 +36,6 @@ img {
     width: 200px;
     height: 250px;
     margin: 10px;
-}
-
-.nav {
-    background-color: blue;
-    color: white;
-    font-size: 20px;
 }
 
 .nav a:hover {
@@ -43,4 +57,12 @@ img {
 
 footer {
     font-size: small;
+}
+
+.delButton {
+    background-color: lightcoral;
+}
+
+.keepButton {
+    background-color: lightgreen;
 }

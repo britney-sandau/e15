@@ -56,7 +56,7 @@ Route::get('/debug', function () {
 
 # CRUD operations
 
-Route::get('users/login', [ItemController::class, 'login']);
+//Route::get('auth/login', [ItemController::class, 'login']);
 
 // Lists available items
 Route::get('/items', [ItemController::class, 'items']);
@@ -69,20 +69,24 @@ Route::post('/items', [CrudController::class, 'save']);
 Route::get('/items/{slug}', [ItemController::class, 'info']);
 
 // Updates an item.
-Route::put('/items/update', [CrudController::class, 'update']);
+Route::get('/items/{slug}/edit', [CrudController::class, 'edit']);
+Route::put('/items/{slug}', [CrudController::class, 'update']);
+
 
 // Deletes and item.
-Route::delete('/items/delete', [CrudController::class, 'delete']);
+Route::get('/items/{slug}/delete', [CrudController::class, 'delete']);
+Route::delete('/items/{slug}', [CrudController::class, 'remove']);
+
 
 // Displays users items
-Route::get('/users/list', [CrudController::class, 'list']);
+Route::get('/auth/list', [CrudController::class, 'list']);
 //Route::get('/items/{slug}', [ItemController::class, 'product']);
 
 // Routes to Curby's help page and contact info.
 Route::get('/help', [ItemController::class, 'help']);
 
 // Registration page.
-Route::get('users/signup', [ItemController::class, 'signup']);
+//Route::get('auth/register', [ItemController::class, 'register']);
 
 
 
@@ -102,10 +106,8 @@ Route::get('users/signup', [ItemController::class, 'signup']);
 
 
 // Used to practice various lecture codes.
+// Route::any('/practice/{n?}', [PracticeController::class, 'index']);
 
-
-Route::any('/practice/{n?}', [PracticeController::class, 'index']);
-
-Route::get('/practice', function () {
-    dump(config('mail.driver'));
-});
+// Route::get('/practice', function () {
+//     dump(config('mail.driver'));
+// });

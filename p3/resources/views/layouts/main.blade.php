@@ -10,12 +10,14 @@
 </head>
 <body>
 
+    @if(session('alert'))
+    <div class='alert'>
+        {{session('alert')}}
+    </div>
+    @endif
+
+
     <div class="content">
-        @if(session('flash-alert'))
-        <div class='flash-alert' dusk='flash-alert'>
-            {{ session('flash-alert') }}
-        </div>
-        @endif
 
         <header>
 
@@ -23,48 +25,40 @@
 
                 <ul class="list">
                     <li class="navLi"><a href='/'>Curby</a></li>
-                    <li class="navLi"><a href='/users/login'>Login</a></li>
 
-
-
-                    {{-- @if(!Auth::user()) --}}
+                    @if(Auth::user())
                     <li class="navLi"><a href='/items'>Available Items</a></li>
-
                     <li class="navLi"><a href='/items/add'>Post an Item</a></li>
-
-                    <li class="navLi"><a href='/users/list'>My Listings</a></li>
-
-                    <a href='/users/signup'>Register</a>
-
-                    {{-- @endif --}}
+                    <li class="navLi"><a href='/auth/list'>My Listings</a></li>
+                    @endif
 
                     <li class="navLi"><a href='/help'>Curby Assistance</a></li>
 
+                    <li>
 
-                    {{-- <li>
-                    @if(!Auth::user())
-                    <a href='/register'>Register</a>
-                    @else
-                    <form method='POST' id='logout' action='/logout'>
-                        {{ csrf_field() }}
-                    <a href='#' onClick='document.getElementById("logout").submit();'>Logout</a>
-                    </form>
-                    @endif
-                    </li> --}}
+
+                        @if(!Auth::user())
+                        <a href=/login>Login</a>
+                        @else
+                        <form method='POST' id='logout' action='/logout'>
+                            {{ csrf_field() }}
+                            <a href='#' onClick='document.getElementById("logout").submit();'>Logout</a>
+                        </form>
+                        @endif
+                    </li>
                 </ul>
             </nav>
 
+
         </header>
-
-
 
         <section class="content">
             @yield('content')
         </section>
+
     </div>
 
     <footer class="content">
-
         <p>Got a question or need some assistance?</p>
         <p>Email {{ config('mail.askCurby') }}.</p>
     </footer>

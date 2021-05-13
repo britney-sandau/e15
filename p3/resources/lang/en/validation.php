@@ -150,6 +150,8 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'slug' => 'custom URL'
+    ],
 
 ];

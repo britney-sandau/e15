@@ -67,6 +67,7 @@ class ItemsTableSeeder extends Seeder
 
         for ($i = 0; $i < 5; $i++) {
             $item = new Item();
+
             $username = $faker->words(rand(3, 6), true);
             $item->slug = Str::slug($username, '-');
             $item->username = $faker->firstname;

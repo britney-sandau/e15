@@ -11,20 +11,21 @@ Curby
 <h1>Curby</h1>
 
 <p>
-    Do you have something that needs to be Curbed? Please add it here.
+    Update an item.
 </p>
 
 <form method='POST' action='/items'>
     {{ csrf_field() }}
+    {{method_field('put')}}
+
 
     <label for='username'>Username (required)</label>
     <br>
-    <input type='text' name='username' id='username' value='{{ old('username') }}'>
+    <input type='text' name='username' id='username' value='{{ old('username', $item->username) }}'>
     <br>
-    <label for='slug'>Add your own custom URL name. (required lowercase letters only)</label>
+    <label for='slug'>Username URL (required)</label>
     <br>
-    <input type='text' name='slug' id='slug' value='{{ old('slug') }}'>
-
+    <input type='text' name='slug' id='slug' value='{{ old('slug', $item->slug) }}'>
     <br>
     <label for='category'>Category (required)</label>
     <br>
@@ -37,8 +38,6 @@ Curby
         <option value='val4' {{(old('category', $categoryType ?? '') == 'val4') ? 'selected' : ''}}>exercise equipment</option>
         <option value='val5' {{(old('category', $categoryType ?? '') == 'val5') ? 'selected' : ''}}>miscellaneous</option>
 
-
-
     </select>
 
     <br>
@@ -46,13 +45,13 @@ Curby
 
 
     <br>
-    <textarea name='description' id='description'>{{ old('description') }}</textarea>
+    <textarea name='description' id='description'>{{ old('description', $item->description) }}</textarea>
 
     <br>
     <label for='image'>Image (required)</label>
 
     <br>
-    <input type='text' name='image' id='image' value='{{ old('image') }}'>
+    <input type='text' name='image' id='image' value='{{ old('image', $item->image) }}'>
     <br>
     <br>
     <button type='submit'>Curb It!</button>
@@ -69,5 +68,9 @@ Curby
     @endif
 
 </form>
+
+@endsection
+
+
 
 @endsection

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
+use App\Models\Item;
 
 class ItemController extends Controller
 {
@@ -23,13 +24,15 @@ class ItemController extends Controller
         //     ['2021-04-01 21:05:16', '2021-04-01 21:05:16', 'username' => 'FixerUpperFred', 'category' => 'furniture', 'description' => 'Comfy couch', 'image' => 'https://hes-bookmark.s3.amazonaws.com/harry-potter-and-the-prisoner-of-azkaban.jpg'],
         // ];
 
-        $itemData = file_get_contents(database_path('items.json'));
+        // $itemData = file_get_contents(database_path('items.json'));
 
-        $items = json_decode($itemData, true);
+        // $items = json_decode($itemData, true);
 
-        $items = Arr::sort($items, function ($value) {
-            return $value['category'];
-        });
+        // $items = Arr::sort($items, function ($value) {
+        //     return $value['category'];
+        // });
+
+        $items = Item::orderby('category')->get();
 
         return view('items/items', ['items'=> $items]);
     }
@@ -38,15 +41,16 @@ class ItemController extends Controller
     {
         //dump('This is the first example.');
 
-        $itemData = file_get_contents(database_path('items.json'));
+        // $itemData = file_get_contents(database_path('items.json'));
 
-        $items = json_decode($itemData, true);
+        // $items = json_decode($itemData, true);
 
-        $item = Arr::first($items, function ($value, $key) use ($slug) {
-            return $key == $slug;
-        });
+        // $item = Arr::first($items, function ($value, $key) use ($slug) {
+        //     return $key == $slug;
+        // });
 
-     
+        $item = Item::where('slug', '=', $slug)->first();
+
 
         return view('/items/info', [
             'item'=> $item,
@@ -63,13 +67,13 @@ class ItemController extends Controller
         return view('help');
     }
 
-    public function login()
-    {
-        return view('users/login');
-    }
+    // public function login()
+    // {
+    //     return view('users/login');
+    // }
 
-    public function signup()
-    {
-        return view('users/signup');
-    }
+    // public function signup()
+    // {
+    //     return view('users/signup');
+    // }
 }

@@ -15,40 +15,21 @@ Curby
 @else
 <div id='newItems'>
 
-    @foreach($items as $slug => $item)
     <h3>New Curby Finds</h3>
-    <a class='item' href='/items/{{$slug}}'>
+
+    @foreach($items as $item)
+
+    <a class='item' href='/items/{{$item['slug']}}'>
         <h4>{{$item['username']}}</h4>
         <img class='image' src='{{ $item['image']}}'>
     </a>
     @endforeach
 
-    {{-- @foreach($items as $item)
-           <ul class='newList'>
-
-        <li>{{ $item['username']}} has {{ $item['category']}} available
-    <br>
-    {{$item['description']}}
-    <br>
-    {{$item['image']}}</li>
-    @endforeach
-    </ul>--}}
 
 
 </div>
 @endif
 
-{{--
-
-<div id='items'>
-    @foreach($items as $item)
-    <a class='item' href='/items/{{ $item->slug }}'>
-<h3>{{ $item->category }}</h3>
-<img class='cover' src='{{ $item->image }}'>
-</a>
-@endforeach
-</div>
-@endif --}}
 
 
 @endsection

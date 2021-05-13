@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Item;
 use App\Models\User;
+use Illuminate\Support\Arr;
 
 /**
     * I used a separate controller for my CRUD operations to keep better track of them.
@@ -22,28 +23,84 @@ class CrudController extends Controller
     public function save(Request $request)
     {
         $request->validate([
-            'username' => 'required|min:8|max:20',
-            // 'slug' => 'required',
+            'username' => 'required|min:8|max:20|unique:items,username',
+            'slug' => 'required|unique:items,slug',
             'category' => 'required|in:val1,val2,val3,val4,val5',
             'description' => 'required|min:2|max:255',
             'image' => 'required|url',
         ]);
 
-        dump($request->all());
+        $item = new Item();
+
+        $item->username = $request->username;
+        $item->slug = $request->slug;
+        $item->category = $request->category;
+        $item->description = $request->description;
+        $item->image = $request->image;
+
+        $item->save();
+
+        return redirect('/items/add')->with(['alert'=>'Your item has been posted to the Curb']);
     }
 
     public function list()
     {
-        return view('users/list');
+        return view('auth/list');
+    }
+
+    public function edit(Request $request, $slug)
+    {
+        $item = Item::where('slug', '=', $slug)->first();
+        
+        if (!$item) {
+            return redirect('/items')->with(['alert' => 'Item not found']);
+        }
+        
+        return view('items/edit', ['item' => $item]);
     }
 
     public function update()
     {
-        return view('items/update');
+        $item = Item::where('slug', '=', $slug)->first();
+
+        $request->validate([
+            'username' => 'required|min:8|max:20|unique:items,username',
+            'slug' => 'required|unique:items,slug'.$item->id.'|alpha_dash',
+            'category' => 'required|in:val1,val2,val3,val4,val5',
+            'description' => 'required|min:2|max:255',
+            'image' => 'required|url',
+        ]);
+
+        $item->username = $request->username;
+        $item->slug = $request->slug;
+        $item->category = $request->category;
+        $item->description = $request->description;
+        $item->image = $request->image;
+        $item->save();
+
+        return redirect('/items/'.$slug.'/update')->with(['alert'=>'Your item has been updated']);
     }
 
-    public function delete()
+    public function delete($slug)
     {
-        return view('items/delete');
+        $item = Item::findBySlug($slug);
+
+        if (!$item) {
+            return redirect('/items')->with([
+                'alert' => 'Item not found'
+            ]);
+        }
+
+        return view('items/delete', ['item' => $item]);
+    }
+
+    public function remove($slug)
+    {
+        $item = Item::findBySlug($slug);
+        $item->delete();
+
+        return redirect('/items')->with([
+            'alert' => 'Your Curby has been removed.'
+        ]);
     }
 }
