@@ -40,6 +40,7 @@ class CrudController extends Controller
 
         $item->save();
 
+    
         return redirect('/items/add')->with(['alert'=>'Your item has been posted to the Curb']);
     }
 
