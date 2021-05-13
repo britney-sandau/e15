@@ -14,9 +14,22 @@ use App\Models\User;
 
 class CrudController extends Controller
 {
-    public function add()
+    public function add(Request $request)
     {
         return view('items/add');
+    }
+
+    public function save(Request $request)
+    {
+        $request->validate([
+            'username' => 'required|min:8|max:20',
+            // 'slug' => 'required',
+            'category' => 'required|in:val1,val2,val3,val4,val5',
+            'description' => 'required|min:2|max:255',
+            'image' => 'required|url',
+        ]);
+
+        dump($request->all());
     }
 
     public function list()

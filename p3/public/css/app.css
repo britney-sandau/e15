@@ -12,6 +12,12 @@ body {
     padding: 1em;
 }
 
+img {
+    width: 200px;
+    height: 250px;
+    margin: 10px;
+}
+
 .nav {
     background-color: blue;
     color: white;

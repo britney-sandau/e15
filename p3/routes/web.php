@@ -58,14 +58,15 @@ Route::get('/debug', function () {
 
 Route::get('users/login', [ItemController::class, 'login']);
 
-
 // Lists available items
 Route::get('/items', [ItemController::class, 'items']);
-Route::get('/items/{{username}}', [ItemController::class, 'details']);
-
+// Route::get('/items/details', [ItemController::class, 'display']);
 
 // Creates an item.
 Route::get('/items/add', [CrudController::class, 'add']);
+Route::post('/items', [CrudController::class, 'save']);
+
+Route::get('/items/{slug}', [ItemController::class, 'info']);
 
 // Updates an item.
 Route::put('/items/update', [CrudController::class, 'update']);
@@ -75,7 +76,7 @@ Route::delete('/items/delete', [CrudController::class, 'delete']);
 
 // Displays users items
 Route::get('/users/list', [CrudController::class, 'list']);
-//Route::get('/items/{username}', [ItemController::class, 'product']);
+//Route::get('/items/{slug}', [ItemController::class, 'product']);
 
 // Routes to Curby's help page and contact info.
 Route::get('/help', [ItemController::class, 'help']);

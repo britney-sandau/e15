@@ -34,6 +34,7 @@ class PracticeController extends Controller
     {
         $item = new Item();
 
+        $item->slug = 'craftychris';
         $item->username = 'CraftyChris';
         $item->category = 'toys';
         $item->description = 'Baby toys in good condition.';

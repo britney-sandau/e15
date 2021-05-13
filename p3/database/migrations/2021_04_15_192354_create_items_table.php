@@ -16,6 +16,7 @@ class CreateItemsTable extends Migration
         Schema::create('items', function (Blueprint $table) {
             $table->id();
             $table->timestamps(); // Adds a created_at and updated_at entry in the database. Marking this so I remember.
+            $table->string('slug');
             $table->string('username', 30);
             $table->enum('category', ['furniture', 'toys', 'clothing', 'exercise equipment', 'miscellaneous']);
             $table->text('description');

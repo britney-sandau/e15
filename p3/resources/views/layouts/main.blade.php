@@ -23,7 +23,7 @@
 
                 <ul class="list">
                     <li class="navLi"><a href='/'>Curby</a></li>
-                    <li class="navLi"><a href='users/login'>Login</a></li>
+                    <li class="navLi"><a href='/users/login'>Login</a></li>
 
 
 

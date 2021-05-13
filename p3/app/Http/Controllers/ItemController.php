@@ -34,20 +34,29 @@ class ItemController extends Controller
         return view('items/items', ['items'=> $items]);
     }
 
-    public function details($username)
+    public function info($slug)
     {
+        //dump('This is the first example.');
+
         $itemData = file_get_contents(database_path('items.json'));
 
         $items = json_decode($itemData, true);
 
-        $items = Arr::sort($items, function ($value, $key) use ($username) {
-            return $key == $username;
+        $item = Arr::first($items, function ($value, $key) use ($slug) {
+            return $key == $slug;
         });
 
-        return view('/users/list', [
-            'items'=> $items
+     
+
+        return view('/items/info', [
+            'item'=> $item,
             ]);
     }
+
+    // public function display()
+    // {
+    //     return view('/items/details');
+    // }
 
     public function help()
     {

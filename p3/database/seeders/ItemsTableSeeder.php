@@ -20,7 +20,7 @@ class ItemsTableSeeder extends Seeder
      */
     public function run()
     {
-        //$this->addItem();
+        $this->addItem();
         $this->addItemFromJsonFile();
         $this->addFakerItem();
     }
@@ -29,6 +29,7 @@ class ItemsTableSeeder extends Seeder
     {
         $item = new Item();
 
+        $item->slug = 'craftychris';
         $item->username = 'CraftyChris';
         $item->category = 'toys';
         $item->description = 'Baby toys in good condition.';
@@ -43,11 +44,12 @@ class ItemsTableSeeder extends Seeder
         $items = json_decode($itemData, true);
     
         $count = count($items);
-        foreach ($items as $username => $itemData) {
+        foreach ($items as $slug => $itemData) {
             $item = new Item();
 
             $item->created_at = Carbon::now()->subDays($count)->toDateTimeString();
             $item->updated_at = Carbon::now()->subDays($count)->toDateTimeString();
+            $item->slug = $slug;
             $item->username = $itemData['username'];
             $item->category = $itemData['category'];
             $item->description = $itemData['description'];
@@ -65,7 +67,8 @@ class ItemsTableSeeder extends Seeder
 
         for ($i = 0; $i < 5; $i++) {
             $item = new Item();
-
+            $username = $faker->words(rand(3, 6), true);
+            $item->slug = Str::slug($username, '-');
             $item->username = $faker->firstname;
             $item->category = 'miscellaneous';
             $item->description = $faker->paragraphs(1, true);

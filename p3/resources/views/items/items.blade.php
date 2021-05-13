@@ -14,18 +14,27 @@ Curby
 <h3>Nothing available at this time. Please check back later for more finds.</h3>
 @else
 <div id='newItems'>
+
+    @foreach($items as $slug => $item)
     <h3>New Curby Finds</h3>
+    <a class='item' href='/items/{{$slug}}'>
+        <h4>{{$item['username']}}</h4>
+        <img class='image' src='{{ $item['image']}}'>
+    </a>
+    @endforeach
 
-    <ul class='newList'>
+    {{-- @foreach($items as $item)
+           <ul class='newList'>
 
-        @foreach($items as $item)
         <li>{{ $item['username']}} has {{ $item['category']}} available
-            <br>
-            {{$item['description']}}
-            <br>
-            {{$item['image']}}</li>
-        @endforeach
-    </ul>
+    <br>
+    {{$item['description']}}
+    <br>
+    {{$item['image']}}</li>
+    @endforeach
+    </ul>--}}
+
+
 </div>
 @endif
 
