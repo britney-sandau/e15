@@ -30,20 +30,22 @@ Curby
     <br>
     <select name="category">
 
-        {{-- <option value=''>Please select...</option>
-        <option value='val1' {{(old('category', $item ?? '') == 'furniture') ? 'selected' : ''}}>furniture</option>
-        <option value='val2' {{(old('category', $item ?? '') == 'toys') ? 'selected' : ''}}>toys</option>
-        <option value='val3' {{(old('category', $item ?? '') == 'clothing') ? 'selected' : ''}}>clothing</option>
-        <option value='val4' {{(old('category', $item ?? '') == 'exercise equipment') ? 'selected' : ''}}>exercise equipment</option>
-        <option value='val5' {{(old('category', $item ?? '') == 'miscellaneous') ? 'selected' : ''}}>miscellaneous</option>
- --}}
-
         <option value=''>Please select...</option>
+        <option value='furniture' {{(old('category', $category ?? '') == 'furniture') ? 'selected' : ''}}>furniture</option>
+        <option value='toys' {{(old('category', $category ?? '') == 'toys') ? 'selected' : ''}}>toys</option>
+        <option value='clothing' {{(old('category', $category ?? '') == 'clothing') ? 'selected' : ''}}>clothing</option>
+        <option value='exercise equipment' {{(old('category', $category ?? '') == 'exercise equipment') ? 'selected' : ''}}>exercise equipment</option>
+        <option value='miscellaneous' {{(old('category', $category ?? '') == 'miscellaneous') ? 'selected' : ''}}>miscellaneous</option>
+       
+
+
+
+        {{-- <option value=''>Please select...</option>
         <option value='val1' {{(old('category', $categoryType ?? '') == 'val1') ? 'selected' : ''}}>furniture</option>
         <option value='val2' {{(old('category', $categoryType ?? '') == 'val2') ? 'selected' : ''}}>toys</option>
         <option value='val3' {{(old('category', $categoryType ?? '') == 'val3') ? 'selected' : ''}}>clothing</option>
         <option value='val4' {{(old('category', $categoryType ?? '') == 'val4') ? 'selected' : ''}}>exercise equipment</option>
-        <option value='val5' {{(old('category', $categoryType ?? '') == 'val5') ? 'selected' : ''}}>miscellaneous</option>
+        <option value='val5' {{(old('category', $categoryType ?? '') == 'val5') ? 'selected' : ''}}>miscellaneous</option> --}}
 
     </select>
 

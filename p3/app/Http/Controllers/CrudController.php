@@ -25,7 +25,7 @@ class CrudController extends Controller
         $request->validate([
             'username' => 'required|min:8|max:20|unique:items,username',
             'slug' => 'required|unique:items,slug',
-            'category' => 'required|in:val1,val2,val3,val4,val5',
+            'category' => 'required|in:furniture,toys,clothing,exercise equipment,miscellaneous',
             'description' => 'required|min:2|max:255',
             'image' => 'required|url',
         ]);
