@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Item;
 use App\Models\User;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Auth;
+
 
 /**
     * I used a separate controller for my CRUD operations to keep better track of them.
@@ -46,7 +48,7 @@ class CrudController extends Controller
 
     public function list()
     {
-        return view('auth/list');
+        return view('items/list');
     }
 
     public function edit(Request $request, $slug)

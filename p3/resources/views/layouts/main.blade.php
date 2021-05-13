@@ -29,7 +29,7 @@
                     @if(Auth::user())
                     <li class="navLi"><a href='/items'>Available Items</a></li>
                     <li class="navLi"><a href='/items/add'>Post an Item</a></li>
-                    <li class="navLi"><a href='/auth/list'>My Listings</a></li>
+                    <li class="navLi"><a href='/items/list'>My Listings</a></li>
                     @endif
 
                     <li class="navLi"><a href='/help'>Curby Assistance</a></li>

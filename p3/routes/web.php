@@ -54,32 +54,37 @@ Route::get('/debug', function () {
     dump($debug);
 });
 
+Route::group(['middleware' => 'auth'], function () {
+
 # CRUD operations
 
-//Route::get('auth/login', [ItemController::class, 'login']);
 
-// Lists available items
-Route::get('/items', [ItemController::class, 'items']);
-// Route::get('/items/details', [ItemController::class, 'display']);
+    //Route::get('auth/login', [ItemController::class, 'login']);
 
-// Creates an item.
-Route::get('/items/add', [CrudController::class, 'add']);
-Route::post('/items', [CrudController::class, 'save']);
+    // Lists available items
+    Route::get('/items', [ItemController::class, 'items'])->middleware('auth');
+    // Route::get('/items/details', [ItemController::class, 'display']);
 
-Route::get('/items/{slug}', [ItemController::class, 'info']);
+    // Creates an item.
+    Route::get('/items/add', [CrudController::class, 'add']);
+    Route::post('/items', [CrudController::class, 'save']);
 
-// Updates an item.
-Route::get('/items/{slug}/edit', [CrudController::class, 'edit']);
-Route::put('/items/{slug}', [CrudController::class, 'update']);
+    // Displays users items
+    Route::get('/items/list', [CrudController::class, 'list']);
 
 
-// Deletes and item.
-Route::get('/items/{slug}/delete', [CrudController::class, 'delete']);
-Route::delete('/items/{slug}', [CrudController::class, 'remove']);
+    Route::get('/items/{slug}', [ItemController::class, 'info']);
+
+    // Updates an item.
+    Route::get('/items/{slug}/edit', [CrudController::class, 'edit']);
+    Route::put('/items/{slug}', [CrudController::class, 'update']);
 
 
-// Displays users items
-Route::get('/auth/list', [CrudController::class, 'list']);
+    // Deletes and item.
+    Route::get('/items/{slug}/delete', [CrudController::class, 'delete']);
+    Route::delete('/items/{slug}', [CrudController::class, 'remove']);
+});
+
 //Route::get('/items/{slug}', [ItemController::class, 'product']);
 
 // Routes to Curby's help page and contact info.

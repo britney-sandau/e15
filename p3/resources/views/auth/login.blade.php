@@ -30,7 +30,7 @@ Want to join Curby? <a href='/register'>Sign-up here.</a>
     <br>
 
 
-    <button type='submit' class='btn btn-primary'>Login</button>
+    <button type='submit' class='loginButton'>Login</button>
 
     </a>
 

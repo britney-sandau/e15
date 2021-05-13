@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use App\Models\Item;
+use Illuminate\Support\Facades\Auth;
 
 class ItemController extends Controller
 {

@@ -3,6 +3,7 @@ body {
     margin: 30px 100px;
     padding: 1em;
     font-size: 16px;
+    color: black;
 
 }
 
@@ -46,7 +47,6 @@ img {
 .navLi {
     display: inline;
     background-color: blue;
-    color: white;
     padding: 1em;
 }
 
@@ -59,10 +59,16 @@ footer {
     font-size: small;
 }
 
-.delButton {
+#delButton {
     background-color: lightcoral;
+    color: white;
 }
 
 .keepButton {
     background-color: lightgreen;
+
+}
+
+.editButton {
+    background-color: lightblue;
 }

@@ -14,7 +14,8 @@ Curby
     Update an item.
 </p>
 
-<form method='POST' action='/items'>
+<form method='POST' action='/items/{{ $item->slug }}'>
+
     {{ csrf_field() }}
     {{method_field('put')}}
 
@@ -60,7 +61,7 @@ Curby
 
 
     @if(count($errors) > 0)
-    <ul class='alert-danger'>
+    <ul class='alert'>
         @foreach ($errors->all() as $error)
         <li>{{ $error }}</li>
         @endforeach
@@ -68,9 +69,5 @@ Curby
     @endif
 
 </form>
-
-@endsection
-
-
 
 @endsection
