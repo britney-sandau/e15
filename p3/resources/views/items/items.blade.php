@@ -13,6 +13,7 @@ Curby
 @if(count($items) == 0)
 <h3>Nothing available at this time. Please check back later for more finds.</h3>
 @else
+
 <div id='newItems'>
 
     <h3>New Curby Finds</h3>
@@ -25,11 +26,8 @@ Curby
     </a>
     @endforeach
 
-
-
 </div>
+
 @endif
-
-
 
 @endsection

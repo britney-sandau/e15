@@ -43,19 +43,18 @@ class CrudController extends Controller
 
         $item->save();
 
-    
         return redirect('/items/add')->with(['alert'=>'Your item has been posted to the Curb']);
     }
 
-    public function list()
+    public function profile()
     {
-        return view('items/list');
+        return view('items/profile');
     }
 
     public function edit(Request $request, $slug)
     {
         $item = Item::where('slug', '=', $slug)->first();
-        // $item = Item::findBySlug($slug);
+        
         
         if (!$item) {
             return redirect('/items')->with(['alert' => 'Item not found']);
@@ -64,13 +63,14 @@ class CrudController extends Controller
         return view('items/edit', ['item' => $item]);
     }
 
-    public function update()
+    public function update(Request $request, $slug)
     {
-        $item = Item::where('slug', '=', $slug)->first();
+       
+        $item = Item::findBySlug($slug);
 
         $request->validate([
-            'username' => 'required|min:8|max:20|unique:items,username',
-            'slug' => 'required|unique:items,slug'.$item->id.'|alpha_dash',
+            'username' => 'required',
+            'slug' => 'required|unique:items,slug,'.$item->id.'|alpha_dash',
             'category' => 'required|in:val1,val2,val3,val4,val5',
             'description' => 'required|min:2|max:255',
             'city' => 'required|min:2|max:100',
@@ -85,7 +85,7 @@ class CrudController extends Controller
         $item->image = $request->image;
         $item->save();
 
-        return redirect('/items/'.$slug.'/update')->with(['alert'=>'Your item has been updated']);
+        return redirect('/items')->with(['alert'=>'Your item has been updated']);
     }
 
     public function delete($slug)
@@ -109,5 +109,17 @@ class CrudController extends Controller
         return redirect('/items')->with([
             'alert' => 'Your Curby has been removed.'
         ]);
+    }
+
+    public function photo(Request $request)
+    {
+        if ($request->hasFile('image')) {
+            $filename = $request->image->getClientOriginalName();
+            $request->image->storeAs('images', $filename, 'public');
+            auth()->user()->update(['profile_photo' => $filename]);
+            
+        }
+       
+        return redirect()->back();
     }
 }

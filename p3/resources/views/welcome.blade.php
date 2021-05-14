@@ -14,7 +14,6 @@ Curby
 </h2>
 @endif
 
-
 <h1>Curby</h1>
 
 <h3>One man's trash is another man's treasure.</h3>
@@ -29,8 +28,5 @@ Curby
 <p>Register to find what treasure awaits you!<a href='/register'> Sign-up today</a></p>
 <p>Already a Curby member? <a href="/login"> Login Here</a></p>
 @endif
-
-
-
 
 @endsection

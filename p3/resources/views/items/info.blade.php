@@ -22,6 +22,4 @@ Item not available. Be sure to check back later for more <a href='/items'>Curby 
 <button type='submit' id='delButton' class='delButton'> <a href='/items/{{ $item->slug }}/delete'>Delete Post</a></button>
 <button type='submit' class='editButton'> <a href='/items/{{ $item->slug }}/edit'>Edit Post</a></button>
 
-
-
 @endsection

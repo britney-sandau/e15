@@ -16,20 +16,20 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         $user = User::updateOrCreate(
-            ['email' => 'britney@mail.com', 'name' => 'Britney Sandau'],
+            ['email' => 'britney@mail.com', 'username' => 'britneys', 'name' => 'Britney Sandau'],
             ['password' => Hash::make('asdfasdf')
     ]
         );
         # Note the use of the `updateOrCreate` Eloquent method
         # This is useful here because the email for each user has to be unique
         $user = User::updateOrCreate(
-            ['email' => 'jill@harvard.edu', 'name' => 'Jill Harvard'],
+            ['email' => 'jill@harvard.edu', 'username' => 'jillh', 'name' => 'Jill Harvard'],
             ['password' => Hash::make('asdfasdf')
     ]
         );
     
         $user = User::updateOrCreate(
-            ['email' => 'jamal@harvard.edu', 'name' => 'Jamal Harvard'],
+            ['email' => 'jamal@harvard.edu', 'username' => 'jamalh', 'name' => 'Jamal Harvard'],
             ['password' => Hash::make('asdfasdf')
     ]
         );

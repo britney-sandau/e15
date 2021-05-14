@@ -21,11 +21,7 @@ class CreateItemsTable extends Migration
             $table->enum('category', ['furniture', 'toys', 'clothing', 'exercise equipment', 'miscellaneous']);
             $table->text('description');
             $table->string('city');
-
-            // temp until I can figure out how to upload photo.
             $table->string('image');
-
-            // Commented out until I can upload a photo. $table->binary('image');
         });
     }
 

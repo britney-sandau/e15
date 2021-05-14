@@ -17,13 +17,8 @@ Curby
 <form method='POST' action='/items/{{ $item->slug }}'>
     {{ method_field('delete') }}
     {{ csrf_field() }}
-
     <button type='submit' class='delButton'>Yes</button>
     <button type='submit' class='keepButton'> <a href='/items/{{ $item->slug }}'>No</a></button>
-
-
 </form>
-
-
 
 @endsection
